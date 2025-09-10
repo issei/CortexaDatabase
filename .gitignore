@@ -1,0 +1,36 @@
+# ===================================
+# CortexaDatabase .gitignore
+# ===================================
+
+# Logs
+*.log
+*.tmp
+
+# Dumps locais do banco
+*.sql.gz
+*.dump
+*.bak
+
+# Arquivos de histórico do psql
+.psql_history
+
+# Configurações locais (não versionar credenciais)
+.env
+.env.local
+.env.*.local
+
+# Diretórios de dependências (se scripts usarem Node/Python)
+node_modules/
+venv/
+__pycache__/
+
+# Arquivos de sistema/editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# Saídas de scripts utilitários
+scripts/output/
+scripts/temp/
