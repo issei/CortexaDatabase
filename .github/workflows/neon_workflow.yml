@@ -42,6 +42,7 @@ jobs:
         with:
           project_id: ${{ vars.NEON_PROJECT_ID }}
           branch_name: preview/pr-${{ github.event.number }}-${{ steps.branch_name.outputs.current_branch }}
+          username: postgres
           api_key: ${{ secrets.NEON_API_KEY }}
 
       # --- ETAPA DE MIGRAÇÃO ---
@@ -52,7 +53,7 @@ jobs:
         run: |
           echo "Aplicando todas as migrações na branch de preview..."
           # Este comando aplica todos os arquivos .sql do diretório de migrações em ordem
-          for migration in $(ls -v database/migrations/*.sql); do
+          for migration in $(ls -v migrations/*.sql); do
             echo "Aplicando $migration..."
             psql "$DATABASE_URL" -f "$migration"
           done
@@ -95,5 +96,5 @@ jobs:
         uses: neondatabase/delete-branch-action@v3
         with:
           project_id: ${{ vars.NEON_PROJECT_ID }}
-          branch_name: preview/pr-${{ github.event.number }}-${{ steps.branch_name.outputs.current_branch }}
+          branch_id: preview/pr-${{ github.event.number }}-${{ steps.branch_name.outputs.current_branch }}
           api_key: ${{ secrets.NEON_API_KEY }}
