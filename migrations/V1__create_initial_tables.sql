@@ -1,6 +1,5 @@
 -- V1: Criação da estrutura inicial de tabelas para o projeto Cortexa
--- Data: 09 de Setembro de 2025
--- Autor: Cortexa Team
+-- Data: 20 de Setembro de 2025
 
 -- PASSO 1: Habilitar a extensão pg_vector
 -- Esta extensão é fundamental para o armazenamento e a busca de embeddings vetoriais.
